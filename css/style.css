@@ -1,0 +1,121 @@
+
+.logo{
+
+    width: 120px;
+    padding-top: 0;
+    position: relative;
+    /* margin-left: 80px; */
+
+}
+
+
+.header {
+    background-color: transparent;
+}
+
+.login{
+    margin: 80px;
+    text-decoration: none;
+    color: black;
+    padding-top: 0;
+    position: relative;
+}
+.login_butn{
+
+display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  border-color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background-color: cyan;
+  font-size: 10px;
+}
+.signup_butn{
+
+display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  border-color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background-color: cyan;
+  font-size: 10px;
+}
+.signup{
+    margin-left: 60%;
+  
+    text-decoration: none;
+    color: black;
+    padding-top: 0;
+    position: relative;
+}
+
+body {
+    background-image: url("../img/signback.jpg");
+    background-position:  center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    height: 500px;
+   }
+
+   @media only screen and (max-width: 600px) {
+    body {
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+       
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .login {
+        
+        margin:10px;
+        text-decoration: none;
+        color:black;
+        padding-top: 0;
+        position: relative;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .signup {
+        
+        margin-left: 10%;
+        text-decoration: none;
+        color: white;
+        padding-top: 0;
+        position: relative;
+    }
+  }
+
+.banner{
+    text-align: center;
+    transform: translate(0px,160px);
+    color: #fff;
+}
+
+.footer{
+    position: fixed;
+  left: 50px;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  font-size: 15px;
+   
+}
+
+.btn-primary {
+  background-color: #337AB7 !important;
+  border-color: cyan;
+}
