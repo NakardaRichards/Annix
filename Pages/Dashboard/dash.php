@@ -19,24 +19,49 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
     <title> <?php echo  'Hello '  . $_SESSION['username'] ?></title>
     
     <link rel="stylesheet" href="/FinalProject/css/sidebar.css">
-    
+    <link rel="stylesheet" href="/FinalProject/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 <body>
 
 <a href="./landing.php" style="text-decoration:none">
-<img class="logo" src="/FinalProject/img/AnnixCyanx.png">
+
 </a>
 <!-- The sidebar -->
-<div class="sidebar">
-  <a class="active" href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
+
+<div class="sidenav">
+
+<a href="../landing.php" style="text-decoration:none">
+<img class="logo" src="/FinalProject/img/AnnixWhite.png">
+</a>
+
+
+
+  <a class="active" href="#home">
+  <span class="material-icons">
+home
+</span> Dashboard</a>
+
+
+
+  <a href="#news"> 
+  <span class="material-icons">
+chat
+</span>Chat Room</a>
+  <a href="#contact">
+  <span class="material-icons">
+person
+</span>
+Annix</a>
+  <a href="#about"> <span class="material-icons">
+psychology
+</span>Brain</a>
 </div>
 
 <!-- Page content -->
 <div class="content">
-
+<div class="greeting"><?php echo  'Hello '  . $_SESSION['username'] ?></div>
 </div>
     
 </body>

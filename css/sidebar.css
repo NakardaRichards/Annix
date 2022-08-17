@@ -11,69 +11,70 @@
     background-color: cyan;
     text-decoration: none;
   } */
-  .logo{
+  /* .logo{
 
-    width: 90px;
+    padding: 6%;    
+    margin: -9.5px;
     padding-top: 0;
-    position: relative;
-    /* margin-left: 80px; */
-
-}
-
-
-  /* The side navigation menu */
-.sidebar {
-    margin: -6px;
-    padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
     position: fixed;
+    background: #0F1A34;
+
+} */
+
+.greeting {
+
+  color: #337AB7;
+  margin-left: 75%;
+    
+  text-decoration: none;
+  padding-top: 10px;
+  position: relative;
+  }
+
+
+  .sidenav {
     height: 100%;
-    overflow: auto;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    font-family: "Merriweather Sans", sans-serif;
+    
+    background: #0F1A34;
+    overflow-x: hidden;
+    padding-top: 20px;
   }
   
-  /* Sidebar links */
-  .sidebar a {
-    display: block;
-    color: black;
-    padding: 16px;
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
     text-decoration: none;
+    display: grid;
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    grid-template-columns: 24px auto;
+    grid-gap: 15px;
+    align-items: center;
+    position: relative;
+
+    
+    
   }
   
-  /* Active/current link */
-  .sidebar a.active {
-    background-color: #040aaa;
-    color: white;
+  .sidenav a:hover {
+    color: #8F91AA;
   }
   
-  /* Links on mouse-over */
-  .sidebar a:hover:not(.active) {
-    background-color: #555;
-    color: white;
+  .main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+    
   }
   
-  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
-  div.content {
-    margin-left: 200px;
-    padding: 1px 16px;
-    height: 1000px;
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
   }
   
-  /* On screens that are less than 700px wide, make the sidebar into a topbar */
-  @media screen and (max-width: 700px) {
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: relative;
-    }
-    .sidebar a {float: left;}
-    div.content {margin-left: 0;}
-  }
-  
-  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-  @media screen and (max-width: 400px) {
-    .sidebar a {
-      text-align: center;
-      float: none;
-    }
-  }

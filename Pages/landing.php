@@ -18,6 +18,13 @@
 </head>
 <body>
 
+<style>body {
+    background-image: url("../img/signback.jpg");
+    background-position:  center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    height: 500px;
+   }</style>
 <div class="header">
 <a href="./landing.php" style="text-decoration:none">
 <img class="logo" src="../img/AnnixCyanx.png">
