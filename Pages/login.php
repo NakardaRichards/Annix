@@ -2,7 +2,7 @@
      session_id();
 
      include '../PHP/users.php';
-     
+     session_reset();
      $usersObj = new Users();
 
      if (isset($_POST['submit'])) {

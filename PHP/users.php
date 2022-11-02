@@ -1,6 +1,7 @@
 <?php
 if (!isset($_SESSION)) {
     session_start();
+
 }
 
 
@@ -28,22 +29,92 @@ class Users
         }
     }
 
+
+    public function insertChat($post)
+
+    {   
+        $outgoing_id = $ran_id = rand(time(), 100000000);
+        $username = $_SESSION['username'];
+        
+        $message = $this->con->real_escape_string($_POST['message']);
+    
+           
+             $query = "INSERT INTO messages(outgoing_msg_id,username,msg)
+            VALUES ('$outgoing_id','$username','$message')";
+           
+               $sql = $this->con->query($query);
+      
+    }
+
+
+    // public function msgCount($post)
+    // {
+    //     // $query = "SELECT COUNT(msg) FROM messages WHERE (username = '{$_SESSION['username']}')";
+    //     $query = "SELECT COUNT(msg) FROM messages ";
+    //     $result = $this->con->query($query);
+        
+    //     if ($result->num_rows > 0) {
+
+    //         $data = array();
+    //         while ($row = $result->fetch_assoc()) {
+    //             $data[] = $row;
+    //         }
+    //         return $data;
+    //     } else {
+    //         echo "No message sent";
+    //     }
+    // }
+    
+    public function msgCount($post)
+    {
+        // $query = "SELECT COUNT(msg) FROM messages WHERE (username = '{$_SESSION['username']}')";
+        $query = "SELECT count(*) FROM messages WHERE (username = '{$_SESSION['username']}')";
+$result = $this->con->query($query);
+  
+
+while($row = mysqli_fetch_array($result)) {
+    echo "Number of Sent messages: ". $row['count(*)'];
+    echo "<br />";
+}
+    }
+
+    public function disMessage($post)
+    {
+        // if(isset($_SESSION['unique_id'])){
+        // $outgoing_id = $_SESSION['unique_id'];
+        // $_SESSION['unique_id'];
+        $query = "SELECT * FROM messages LEFT JOIN users on users.unique_id = messages.outgoing_msg_id
+        WHERE (username = '{$_SESSION['username']}') ORDER BY msg_id";
+        $result = $this->con->query($query);
+        
+        if ($result->num_rows > 0) {
+
+            $data = array();
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            return $data;
+        } else {
+            echo "No messages are available. Once you send message they will appear here.";
+        }
+    }
+    
     public function signupData($post)
     {
         $fname = $this->con->real_escape_string($_POST['fname']);
         $lname = $this->con->real_escape_string($_POST['lname']);
         $email = $this->con->real_escape_string($_POST['email']);
         $password = $this->con->real_escape_string($_POST['pass']);
-
-        $query = "INSERT INTO users(fname,lname,email,pass) VALUES('$fname','$lname','$email','$password')";
+        $ran_id = rand(time(), 100000000);
+        $query = "INSERT INTO users(unique_id,fname,lname,email,pass) VALUES('$ran_id','$fname','$lname','$email','$password')";
         $sql = $this->con->query($query);
 
         if ($sql == true) {
             $_SESSION['username'] = $fname;
-
-
-
-            header("Location:Dashboard/dash.php");
+            $_SESSION['unique_id'] = $ran_id;
+            // header("Location:Dashboard/dash.php");
+            // header("Location:Dashboard/redirect.php");
+            header("Location:login.php");
         } else {
             echo "Failed to signup!";
         }
@@ -75,39 +146,9 @@ class Users
             echo "Login failed!";
         }
     }
+
+
+
+
 }
-    // public function displayData($post)
-    // {
-    //     $query = "SELECT * FROM members ";
-    //     $result = $this->con->query($query);
-    //     if ($result->num_rows > 0) {
-    //         $data = array();
-    //         while ($row = $result->fetch_assoc()) {
-    //             $data[] = $row;
-    //         }
-    //         return $data;
-    //     } else {
-    //         echo "No members found";
-    //     }
-    // }
 
-
-//     public function displayGymNames($post)
-//     {
-
-
-
-//         $query = "SELECT * FROM admins  ";
-//         $result = $this->con->query($query);
-
-//         if ($result->num_rows > 0) {
-
-//             $data = array();
-//             while ($row = $result->fetch_assoc()) {
-//                 $data[] = $row;
-//             }
-//             return $data;
-//         } else {
-//             echo "No Data found";
-//         }
-//     }

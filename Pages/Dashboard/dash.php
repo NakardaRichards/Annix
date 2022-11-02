@@ -1,6 +1,6 @@
 <?php include_once('C:\xampp\htdocs\FinalProject\PHP\users.php');
 
-
+ session_id();
 $usersObj = new Users();
 
 if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
@@ -122,16 +122,24 @@ psychology
       
 		<script src="/FinalProject/Js/main.js"></script>
 
-        <p>yO</p>
-  <h1 style="margin-bottom:10px; text-align:center">Hello</h1>
-  <h1 style=" text-align:center">Hello</h1>
-  <h1 style=" text-align:center">Hello</h1>
-  <h1 style=" text-align:center">Hello</h1>
-  <h1 style="text-align:center">Hello</h1>
-  <h1 style=" text-align:center">Hello</h1>
-  <h1 style=" text-align:center; padding-bottom:20px">Hello</h1>
+
+  <div style="margin: bottom 50px; text-align:center">
+
+  <?php
+   $messages = $usersObj->msgCount($_POST);
+    foreach ($messages as $message) {
+    ?>
+
+    <?php } ?>
+   
+    <?php echo $message['msg']; ?>
+    </div>
+
   
+    
+ 
     <?php include_once('footer.php'); ?>
 
+ 
 </body>
 </html>

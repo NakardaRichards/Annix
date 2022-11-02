@@ -8,7 +8,14 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
     exit;
 }
 
+if (isset($_POST['message'])) {
+  $usersObj->insertChat($_POST);
+}
+
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +23,7 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> <?php echo   $_SESSION['username'] .' Chat Room ' ?></title>
+    <title> <?php echo   $_SESSION['username'] .' Chat Room ' . $_SESSION['unique_id'] ?></title>
         
     <link rel="stylesheet" href="/FinalProject/css/sidebar.css">
     <link rel="stylesheet" href="/FinalProject/css/style.css">
@@ -145,9 +152,10 @@ mic
 
         <?php
 session_start();
-include_once "php/config.php";
-if (!isset($_SESSION['unique_id'])) {
-  header("location: login.php");
+include_once('C:\xampp\htdocs\FinalProject\PHP\users.php');
+if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
+  header("location: ../landing.php");
+  exit;
 }
 ?>
 <?php include_once "header.php"; ?>
@@ -158,33 +166,69 @@ if (!isset($_SESSION['unique_id'])) {
     <section class="chat-area" >
       <header>
        
-        <!-- <a href="../landing.php" class="back-icon"><i class="fas fa-arrow-left"></i></a> -->
+       
+        
         <img src="/FinalProject/img/AnnixWhite.png<?php echo $row['img']; ?>" alt="">
         <div class="details">
           <span><?php echo $_SESSION['username'] .' & '.'Annix'?></span>
-          <p><?php echo $row['status']; ?></p>
         </div>
-        
       </header>
-      <div class="chat-box">
 
-      </div>
-      <form action="#" class="typing-area">
-        <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
-        <input type="text" name="message" class="input-field" placeholder="Type a message here..." autocomplete="off">
-        <button><i class="fab fa-telegram-plane"></i></button>
-      </form>
+
+   
+    <div class="chat-box">
+
+<form action="chatroom.php" method="POST">
+
+<div class="msg">
+
+<?php
+
+
+include_once "get-chat.php";
+?>
+<!-- <?php
+    $messages = $usersObj->disMessage($_POST);
+    foreach ($messages as $message) {
+    ?>
+
+    <?php } ?>
+    <?php echo $message['username']; ?>
+    <br>
+    <?php echo $message['msg']; ?>
+  -->
+
+
+   
+
+
+   
+
+    </div>
+    <div class="typing-area">
+      
+    <input type="text" class="unique_id" name="unique_id" value="<?php echo $unique_id; ?>" hidden>
+    <input type="text" class="username" name="username" value="<?php echo $username; ?>" hidden>
+    
+        <input type="text" name="message" class="input-field" placeholder="Type a message here..." autocomplete="off"></input>
+
+    </div>
+    <div>
+      
+        <button style="color: cyan; float:right; transform: translate(0, -66px);margin-right:40px;padding:10px"> <i class="fab fa-telegram-plane" name="message" type="message" value="message"></i></button>
+        </form>
     </section>
-  </div>
-  </section>
+    </div>
+    
+</form>
 
-  <script src="Javascript/chat.js"></script>
+</div>
 
 </body>
 
 </html>
         </div>
-  
+        <script src="/Js/chat.js"></script>
   
 </body>
 </html>
