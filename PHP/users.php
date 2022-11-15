@@ -47,6 +47,7 @@ class Users
     }
 
 
+
     // public function msgCount($post)
     // {
     //     // $query = "SELECT COUNT(msg) FROM messages WHERE (username = '{$_SESSION['username']}')";
@@ -73,7 +74,7 @@ $result = $this->con->query($query);
   
 
 while($row = mysqli_fetch_array($result)) {
-    echo "Number of Sent messages: ". $row['count(*)'];
+    echo $row['count(*)'];
     echo "<br />";
 }
     }
@@ -147,8 +148,4 @@ while($row = mysqli_fetch_array($result)) {
         }
     }
 
-
-
-
 }
-

@@ -1,0 +1,22 @@
+[
+        {
+         "queries": ["Hi there"],
+         "replies": ["Sup ?"]
+         
+        },
+        {
+         "queries": ["Bye"],
+         "replies": ["See you!"]
+        
+        },
+        {
+         "queries": ["Thanks"],
+         "replies": ["Any time!"]
+         
+        },
+        {
+         "queries": [],
+         "replies": ["Not sure I understand"]
+         
+        }
+]

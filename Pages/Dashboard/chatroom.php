@@ -1,15 +1,11 @@
 <?php include_once('C:\xampp\htdocs\FinalProject\PHP\users.php');
 
 
-$usersObj = new Users();
+
 
 if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
     header("location: ../landing.php");
     exit;
-}
-
-if (isset($_POST['message'])) {
-  $usersObj->insertChat($_POST);
 }
 
 
@@ -33,6 +29,11 @@ if (isset($_POST['message'])) {
     <link href="/FinalProject/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     
     <link href="/FinalProject/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="/FinalProject/css/chatstyle.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
 
@@ -158,72 +159,73 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
   exit;
 }
 ?>
-<?php include_once "header.php"; ?>
 
-<body>
-    <section  class="chat_box">
-  <div class="wrapper">
-    <section class="chat-area" >
-      <header>
-       
-       
-        
-        <img src="/FinalProject/img/AnnixWhite.png<?php echo $row['img']; ?>" alt="">
-        <div class="details">
-          <span><?php echo $_SESSION['username'] .' & '.'Annix'?></span>
+
+<div class="wrapper">
+        <div class="title">Annix</div>
+        <div class="form">
+            <div class="bot-inbox inbox">
+                <div class="icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="msg-header">
+                    <p>Hello <?php echo $_SESSION['username'] ?> , how can I help you?</p>
+                </div>
+            </div>
         </div>
-      </header>
 
 
-   
-    <div class="chat-box">
-
-<form action="chatroom.php" method="POST">
-
-<div class="msg">
-
-<?php
-
-
-include_once "get-chat.php";
-?>
-<!-- <?php
-    $messages = $usersObj->disMessage($_POST);
-    foreach ($messages as $message) {
-    ?>
-
-    <?php } ?>
-    <?php echo $message['username']; ?>
-    <br>
-    <?php echo $message['msg']; ?>
-  -->
-
-
-   
-
-
-   
-
-    </div>
-    <div class="typing-area">
+<div class="typing-field">
+            <div class="input-data">
       
-    <input type="text" class="unique_id" name="unique_id" value="<?php echo $unique_id; ?>" hidden>
-    <input type="text" class="username" name="username" value="<?php echo $username; ?>" hidden>
+   
     
-        <input type="text" name="message" class="input-field" placeholder="Type a message here..." autocomplete="off"></input>
-
+        <input id="msg"  type="text" class="input-field" placeholder="Type a message here..." required></input>
+        <button  id="send-btn">Send</button>
     </div>
     <div>
-      
-        <button style="color: cyan; float:right; transform: translate(0, -66px);margin-right:40px;padding:10px"> <i class="fab fa-telegram-plane" name="message" type="message" value="message"></i></button>
-        </form>
-    </section>
     </div>
     
+ 
 </form>
+<script>
+        $(document).ready(function(){
+            $("#send-btn").on("click", function(){
+                $value = $("#msg").val();
+                $msg = '<div class="user-inbox inbox"><div class="msg-header"><p>'+ $value +'</p></div></div>';
+                $(".form").append($msg);
+                $("#msg").val('');
+                
+                // start ajax code
+     
+                $.ajax({
+                    url: 'message.php',
+                    type: 'POST',
+                    data: 'text='+$value,
+                    success: function(result){
+                        $replay = '<div class="bot-inbox inbox"><div class="icon"><i class="fas fa-user"></i></div><div class="msg-header"><p>'+ result +'</p></div></div>';
+                      
+                        // when chat goes down the scroll bar automatically comes to the bottom
+                        $(".form").scrollTop($(".form")[0].scrollHeight);
+                    }
+                });
+                $.ajax({
+                    url: 'insertChat.php',
+                    type: 'POST',
+                    data: 'message='+$value,
+                    success: function(result){
+                       
+                        $(".form").append($replay);
+                        // when chat goes down the scroll bar automatically comes to the bottom
+                        $(".form").scrollTop($(".form")[0].scrollHeight);
+                    }
+                });
+            });
+        });
 
-</div>
-
+        
+    </script>
+ 
 </body>
 
 </html>
