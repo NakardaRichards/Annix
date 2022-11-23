@@ -148,4 +148,21 @@ while($row = mysqli_fetch_array($result)) {
         }
     }
 
+
+
+    public function displayData ($post)
+    {
+        $query = "SELECT * FROM greetings ORDER BY RAND() LIMIT 1";
+        $result = $this->con->query($query);
+        if ($result->num_rows > 0) {
+            $data = array();
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            return $data;
+        } else {
+            echo "No Data found";
+        }
+    }
+
 }

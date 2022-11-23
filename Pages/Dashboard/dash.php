@@ -141,8 +141,8 @@ psychology
                     
                   </div>
                   <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Sent Messages</p>
+                    <div class="numbers" >
+                      <p class="card-category" >Sent Messages</p>
                       <p class="card-title"><?php $messages = $usersObj->msgCount($_POST);?><p>
                     </div>
                   </div>

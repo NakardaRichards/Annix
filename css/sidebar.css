@@ -41,7 +41,8 @@
     left: 0;
     font-family: "Merriweather Sans", sans-serif;
     text-decoration: none !important;
-    background: #0F1A34;
+    /* background: #0F1A34; */
+    background: linear-gradient(to bottom left, #368a9d, #6154f5, #e14eca) !important;
     overflow-x: hidden;
     padding-top: 20px;
     overflow-y: auto;

@@ -1,5 +1,5 @@
 <?php include_once('C:\xampp\htdocs\FinalProject\PHP\users.php');
-
+$greetingsObj = new Users();
 
 $usersObj = new Users();
 
@@ -113,9 +113,46 @@ psychology
 
 </div>
 </div>
+<div class="cont">
 
+<table class="table table-hover">
+            <thead>
+                <tr>
+                  
+                    <th>Greetings</th>
+                  
+                    
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $greetings = $greetingsObj->displayData($_POST);
+                foreach ($greetings as $greeting) {
+                ?>
+                    <tr>
+                       
+                       
+                        <td><?php echo $greeting['greeting'] ?></td>
+                        
+                        <td>
+                            <a href="edit.php?editId=<?php echo $productt['id'] ?>" style="color:black">
+                                <i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp
+                            <a href="index.php?deleteId=<?php echo $product['id'] ?>" style="color:red">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </div>
 </div>
+
+                </div>
 <script src="/FinalProject/vendor/jquery/jquery.min.js"></script>
 <script src="/FinalProject/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/FinalProject/Js/sb-admin-2.min.js"></script>

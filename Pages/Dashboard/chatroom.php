@@ -1,7 +1,7 @@
 <?php include_once('C:\xampp\htdocs\FinalProject\PHP\users.php');
 
-
-
+$usersObj = new Users();
+$greetingsObj = new Users();
 
 if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
     header("location: ../landing.php");
@@ -169,7 +169,19 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="msg-header">
-                    <p>Hello <?php echo $_SESSION['username'] ?> , how can I help you?</p>
+                    <!-- <p>Hello <?php echo $_SESSION['username'] ?> , how can I help you?</p> -->
+                    <?php
+                  
+                   $greetings = $greetingsObj->displayData($_POST);
+                foreach ($greetings as $greeting) {
+                ?>
+                   
+                       
+                       
+                   <p><?php echo $greeting['greeting'] ?></p>
+
+                     
+                        <?php } ?>
                 </div>
             </div>
         </div>
