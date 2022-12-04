@@ -2,7 +2,8 @@
 
  session_id();
 $usersObj = new Users();
-
+$lastmessageObj = new Users();
+$moodObj = new Users();
 if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
     header("location: ../landing.php");
     exit;
@@ -135,14 +136,15 @@ psychology
         <div class="row">
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card card-stats">
-              <div class="card-body ">
+              <div class="card-body" style="background-color: #32325d; color:#e14eca; text-align:left;">
                 <div class="row">
                   <div class="col-5 col-md-4">
                     
                   </div>
-                  <div class="col-7 col-md-8">
+                  <div class="col-7 col-md-8" style="font-size:14px">
                     <div class="numbers" >
-                      <p class="card-category" >Sent Messages</p>
+                      <p class="card-category"  style=" transform: translate(-20px, 20px);" >Sent Messages</p>
+                      <br>
                       <p class="card-title"><?php $messages = $usersObj->msgCount($_POST);?><p>
                     </div>
                   </div>
@@ -150,42 +152,44 @@ psychology
               </div>
               <div class="card-footer ">
                 <hr>
-                <div class="stats">
-                  <i class="fa fa-refresh"></i>
-                  Update Now
-                </div>
+                
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="col-lg-3 col-md-6 col-sm-6" style="font-size:14px" >
             <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
+              <div class="card-body"style="background-color: #32325d; color:#e14eca; text-align:left;">
+                <div class="row" >
                   <div class="col-5 col-md-4">
                     <div class="icon-big text-center icon-warning">
                       <i class="nc-icon nc-money-coins text-success"></i>
                     </div>
                   </div>
-                  <div class="col-7 col-md-8">
+                  <div class="col-7 col-md-8" >
                     <div class="numbers">
-                      <p class="card-category">Revenue</p>
-                      <p class="card-title">$ 1,345<p>
+                      <p class="card-category" style=" transform: translate(-20px, 20px);" >Last Message</p>
+                      <br>
+                      <p class="card-title"><?php $lastmessages = $lastmessageObj->lastMessage($_POST);
+                      
+                      
+                      foreach ($lastmessages as $lastmessage) {
+                        ?>
+                        <?php echo $lastmessage['msg'] ?>
+                        <p>
+                        <?php } ?>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="card-footer ">
+              <div class="card-footer " >
                 <hr>
-                <div class="stats">
-                  <i class="fa fa-calendar-o"></i>
-                  Last day
-                </div>
+                
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="col-lg-3 col-md-6 col-sm-6"style="font-size:14px">
             <div class="card card-stats">
-              <div class="card-body ">
+              <div class="card-body" style="background-color: #32325d; color:#e14eca; text-align:left;">
                 <div class="row">
                   <div class="col-5 col-md-4">
                     <div class="icon-big text-center icon-warning">
@@ -194,48 +198,27 @@ psychology
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category">Errors</p>
-                      <p class="card-title">23<p>
+                      <p class="card-category" style=" transform: translate(-20px, 20px);" >Annix's Mood</p>
+                      <br>
+                      <p class="card-title"> <p class="card-title"><?php $moods = $moodObj->displayMood($_POST);
+                      
+                      foreach ($moods as $mood) {
+                        ?>
+                        <?php echo $mood['mood'] ?>
+                        <p>
+                        <?php } ?>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="card-footer ">
                 <hr>
-                <div class="stats">
-                  <i class="fa fa-clock-o"></i>
-                  In the last hour
-                </div>
+               
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-favourite-28 text-primary"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Followers</p>
-                      <p class="card-title">+45K<p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-refresh"></i>
-                  Update now
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+         
+
         </div>
        
     

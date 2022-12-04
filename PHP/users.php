@@ -165,4 +165,34 @@ while($row = mysqli_fetch_array($result)) {
         }
     }
 
+    public function lastMessage ($post)
+    {
+        $query = "SELECT msg FROM messages ORDER BY msg_id DESC LIMIT 1 ";
+        $result = $this->con->query($query);
+        if ($result->num_rows > 0) {
+            $data = array();
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            return $data;
+        } else {
+            echo "No messages found";
+        }
+    }
+
+    public function displayMood ($post)
+    {
+        $query = "SELECT mood FROM mood ORDER BY RAND() LIMIT 1";
+        $result = $this->con->query($query);
+        if ($result->num_rows > 0) {
+            $data = array();
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            return $data;
+        } else {
+            echo "No Data found";
+        }
+    }
+
 }

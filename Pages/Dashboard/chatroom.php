@@ -178,7 +178,7 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
                    
                        
                        
-                   <p><?php echo $greeting['greeting'] ?></p>
+                   <p><?php echo $greeting['greeting'] ?> </p>
 
                      
                         <?php } ?>
@@ -237,7 +237,79 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
 
         
     </script>
+  <!-- <div class="col-lg-3 col-md-6 col-sm-6" style="font-size:14px">
+            <div class="card card-stats">
+              <div class="card-body " style="background-color: #32325d; color:#e14eca; ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-favourite-28 text-primary"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category" style=" transform: translate(-20px, 20px);" >Current Time</p>
+                      <p class="card-title">
+                        <br>
+
+
+<div style=" transform: translate(-20px, 20px);" >
+
+
+</div>
+
+           
+  
+<p>
+           
+</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+               
+              </div>
+            </div>
+          </div>
+        </div> -->
+        
+
+</div>
+<style>
+
+
+.dark-mode {
+  background-color: black;
+  color: white;
+  
+}
+
+.dark-mode .title{
+  background-color: white;
+  color: black;
+  
+}
+
+.dark-mode .form{
+  background-color: grey;
  
+  
+}
+</style>
+</head>
+<body>
+
+
+<button class="button-15" role="button"onclick="myFunction()" style="transform: translate(600px, -500px);">Go dark</button>
+
+
+<script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
 </body>
 
 </html>

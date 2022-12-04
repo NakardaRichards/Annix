@@ -76,76 +76,42 @@ psychology
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="../landing.php" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">Username: <?php echo '<b>' . $_SESSION['username'] . '</b>'; ?> </span>
-                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                        <b style="color:red;"> Logout</b>
+                        
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Continue
-                        </a>
-                    </div>
+                   
                 </li>
 
             </ul>
 
         </nav>
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog" role="document">
-         <div class="modal-content">
-             <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">×</span>
-                 </button>
-             </div>
-             <!-- <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div> -->
-             <div class="modal-footer">
-                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                 <a class="btn btn-primary" href="logout.php">Logout</a>
-             </div>
-         </div>
-     </div>
- </div>
+       
 
 </div>
 </div>
 <div class="cont">
 
-<table class="table table-hover">
-            <thead>
-                <tr>
+
+          
+               
                   
-                    <th>Greetings</th>
+                    <h1>Possible Greeting</h1>
                   
-                    
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
+              
+          
                 <?php
                 $greetings = $greetingsObj->displayData($_POST);
                 foreach ($greetings as $greeting) {
                 ?>
-                    <tr>
-                       
-                       
-                        <td><?php echo $greeting['greeting'] ?></td>
+                     
+                        <p><?php echo $greeting['greeting'] ?></p>
                         
-                        <td>
-                            <a href="edit.php?editId=<?php echo $productt['id'] ?>" style="color:black">
-                                <i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp
-                            <a href="index.php?deleteId=<?php echo $product['id'] ?>" style="color:red">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
+                        
+                    
                 <?php } ?>
-            </tbody>
-        </table>
+          
+    </div>
+            
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

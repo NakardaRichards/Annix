@@ -115,7 +115,6 @@ psychology
 </div>
 </div>
 
-<div class="cont">
 
 </div>
 
