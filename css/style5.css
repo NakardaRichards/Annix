@@ -1,0 +1,79 @@
+.mic {
+    position: absolute;
+  
+
+    transform: translate(500px,210px);
+    color: #fff;
+  }
+  .mic::before, .mic::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    z-index: 2;
+    box-shadow: 0 0 20px 20px #1c084f;
+  }
+  .mic::before {
+    width: 400px;
+    height: 400px;
+    background-color: black;
+  }
+  .mic::after {
+    width: 250px;
+    height: 250px;
+    background-color: rgba(0, 255, 255, 0.765);
+    animation: circle-size 0.8s linear infinite alternate;
+  }
+  .mic-icon {
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(5);
+    display: block;
+    width: 16px;
+    height: 12px;
+    border-bottom-left-radius: 120px;
+    border-bottom-right-radius: 120px;
+    border: 2px solid;
+    border-top: 0;
+    margin-top: 20px;
+    z-index: 3;
+  }
+  .mic-icon::before, .mic-icon::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+  }
+  .mic-icon::before {
+    width: 2px;
+    height: 5px;
+    top: calc(100% + 1px);
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: #fff;
+  }
+  .mic-icon::after {
+    border: 2px solid;
+    width: 8px;
+    height: 18px;
+    left: 50%;
+    top: -10px;
+    border-radius: 4px;
+    transform: translate(-50%, 0);
+  }
+
+  
+  @keyframes circle-size {
+    from {
+      width: 250px;
+      height: 250px;
+    }
+    to {
+      width: 300px;
+      height: 300px;
+    }
+  }

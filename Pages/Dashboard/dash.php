@@ -21,6 +21,7 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
     
     <link rel="stylesheet" href="/FinalProject/css/sidebar.css">
     <link rel="stylesheet" href="/FinalProject/css/style.css">
+    <link rel="stylesheet" href="/FinalProject/css/style2.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -129,96 +130,77 @@ psychology
   <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="C:\xampp\htdocs\FinalProject\assets\demo\demo.css" rel="stylesheet" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   
     <div style="width:70%; margin-left:20%; margin-top:100px">
-        <div class="row">
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body" style="background-color: #32325d; color:#e14eca; text-align:left;">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    
-                  </div>
-                  <div class="col-7 col-md-8" style="font-size:14px">
-                    <div class="numbers" >
-                      <p class="card-category"  style=" transform: translate(-20px, 20px);" >Sent Messages</p>
-                      <br>
-                      <p class="card-title"><?php $messages = $usersObj->msgCount($_POST);?><p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6" style="font-size:14px" >
-            <div class="card card-stats">
-              <div class="card-body"style="background-color: #32325d; color:#e14eca; text-align:left;">
-                <div class="row" >
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-money-coins text-success"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8" >
-                    <div class="numbers">
-                      <p class="card-category" style=" transform: translate(-20px, 20px);" >Last Message</p>
-                      <br>
-                      <p class="card-title"><?php $lastmessages = $lastmessageObj->lastMessage($_POST);
+        
+         
+          <div class="tiles">
+					<article class="tile">
+						<div class="tile-header">
+							<i class="ph-lightning-light"></i>
+							<h3>
+								<span>Sent Messages </span>
+								<span><?php $messages = $usersObj->msgCount($_POST);?></span>
+							</h3>
+						</div>
+						
+					</article>
+					<article class="tile">
+						<div class="tile-header">
+							<i class="ph-fire-simple-light"></i>
+							<h3>
+								<span>Last Message </span>
+								<span><?php $lastmessages = $lastmessageObj->lastMessage($_POST);
                       
                       
                       foreach ($lastmessages as $lastmessage) {
                         ?>
                         <?php echo $lastmessage['msg'] ?>
                         <p>
-                        <?php } ?>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer " >
-                <hr>
-                
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6"style="font-size:14px">
-            <div class="card card-stats">
-              <div class="card-body" style="background-color: #32325d; color:#e14eca; text-align:left;">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-vector text-danger"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category" style=" transform: translate(-20px, 20px);" >Annix's Mood</p>
-                      <br>
-                      <p class="card-title"> <p class="card-title"><?php $moods = $moodObj->displayMood($_POST);
+                        <?php } ?></span>
+							</h3>
+						</div>
+						
+					</article>
+					<article class="tile">
+						<div class="tile-header">
+							<i class="ph-file-light"></i>
+							<h3>
+								<span>Annix's Mood  <div id="div1" class="fa"></div>
+
+<script>
+function smile() {
+  var a;
+  a = document.getElementById("div1");
+  a.innerHTML = "&#xf118;";
+  setTimeout(function () {
+      a.innerHTML = "&#xf11a;";
+    }, 1000);
+  setTimeout(function () {
+      a.innerHTML = "&#xf119;";
+    }, 2000);
+  setTimeout(function () {
+      a.innerHTML = "&#xf11a;";
+    }, 3000);
+}
+smile();
+setInterval(smile, 4000);
+</script></span>
+								<span><?php $moods = $moodObj->displayMood($_POST);
                       
                       foreach ($moods as $mood) {
                         ?>
                         <?php echo $mood['mood'] ?>
                         <p>
-                        <?php } ?>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-               
-              </div>
-            </div>
-          </div>
-         
-
+                        <?php } ?></span>
+                       
+							</h3>
+						</div>
+					
+					</article>
+				</div>
         </div>
        
     

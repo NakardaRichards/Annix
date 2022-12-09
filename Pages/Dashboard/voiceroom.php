@@ -27,6 +27,7 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
     
     <link href="/FinalProject/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="/FinalProject/css/audio.css" rel="stylesheet">
+    <link href="/FinalProject/css/style5.css" rel="stylesheet">
 </head>
 <body>
 
@@ -146,12 +147,17 @@ mic
 
 
   <script src="Javascript/chat.js"></script>
-  <div class="boxContainer">
+  <!-- <div class="boxContainer">
   <div class="box box1"></div>
   <div class="box box2"></div>
   <div class="box box3"></div>
   <div class="box box4"></div>
   <div class="box box5"></div>
+</div> -->
+
+<div class="mic">
+  <i class="mic-icon"></i>
+  <div class="mic-shadow"></div>
 </div>
 </body>
 
