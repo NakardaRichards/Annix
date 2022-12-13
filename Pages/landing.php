@@ -36,13 +36,13 @@
 <button class='glowing-btn2'><span class='glowing-txt2'>S<span class='faulty-letter2'>IGN</span>UP</span></button>
   
     
-<button class="signup_butn" type="button">Signup</button>
+<!-- <button class="signup_butn" type="button">Signup</button> -->
 </a>
 
 <a  class="login" href="./login.php">
     
     <button class='glowing-btn'><span class='glowing-txt'>L<span class='faulty-letter'>O</span>GIN</span></button>
-    <button class="login_butn" type="button">Login</button>
+    <!-- <button class="login_butn" type="button">Login</button> -->
 </a>
 
 </div>

@@ -66,19 +66,19 @@
                          </a>
 							<form method="post" action="../Pages/signup.php" enctype="multipart/form-data">
                                         <div class="form-group">
-									<label>Enter Your First Name:</label>
+									<label>First Name</label>
 									<input type="text" name="fname" class="form-control" required />
 								</div>
                                         <div class="form-group">
-									<label>Enter Your Last Name:</label>
+									<label>Last Name</label>
 									<input type="text" name="lname" class="form-control" required />
 								</div>
 								<div class="form-group">
-									<label>Enter Your Email:</label>
+									<label>Email</label>
 									<input type="email" name="email" class="form-control" required />
 								</div>
 								<div class="form-group">
-									<label>Enter Your Password:</label>
+									<label>Password</label>
 									<input type="password" name="pass" class="form-control" required />
                                         </div>
 								<div class="form-group text-right">

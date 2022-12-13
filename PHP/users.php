@@ -167,7 +167,7 @@ while($row = mysqli_fetch_array($result)) {
 
     public function lastMessage ($post)
     {
-        $query = "SELECT msg FROM messages ORDER BY msg_id DESC LIMIT 1 ";
+        $query = "SELECT msg FROM messages WHERE (username = '{$_SESSION['username']}') ORDER BY msg_id DESC LIMIT 1 ";
         $result = $this->con->query($query);
         if ($result->num_rows > 0) {
             $data = array();
