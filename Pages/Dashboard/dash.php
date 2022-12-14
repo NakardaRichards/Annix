@@ -53,11 +53,11 @@ home
   <span class="material-icons">
 chat
 </span>Chat Room</a>
-  <a href="./annix.php">
+  <!-- <a href="./annix.php">
   <span class="material-icons">
 person
 </span>
-Annix</a>
+Annix</a> -->
   <a href="./brain.php"> <span class="material-icons">
 psychology
 </span>Brain</a>
@@ -203,9 +203,7 @@ setInterval(smile, 4000);
 				</div>
         </div>
        
-    
- 
-    <?php include_once('footer.php'); ?>
+
 
  
 </body>

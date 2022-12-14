@@ -29,7 +29,44 @@ class Users
         }
     }
 
+    public function knowledgeCount($post)
+    {
+        // $query = "SELECT COUNT(msg) FROM messages WHERE (username = '{$_SESSION['username']}')";
+        $query = "SELECT count(*) FROM chatbot";
+$result = $this->con->query($query);
+  
 
+while($row = mysqli_fetch_array($result)) {
+    echo $row['count(*)'];
+    echo "<br />";
+}
+    }
+
+    public function greetingsCount($post)
+    {
+        // $query = "SELECT COUNT(msg) FROM messages WHERE (username = '{$_SESSION['username']}')";
+        $query = "SELECT count(*) FROM greetings";
+$result = $this->con->query($query);
+  
+
+while($row = mysqli_fetch_array($result)) {
+    echo $row['count(*)'];
+    echo "<br />";
+}
+    }
+
+    public function moodCount($post)
+    {
+        // $query = "SELECT COUNT(msg) FROM messages WHERE (username = '{$_SESSION['username']}')";
+        $query = "SELECT count(*) FROM mood";
+$result = $this->con->query($query);
+  
+
+while($row = mysqli_fetch_array($result)) {
+    echo $row['count(*)'];
+    echo "<br />";
+}
+    }
     public function insertChat($post)
 
     {   

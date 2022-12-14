@@ -1,0 +1,49 @@
+
+      .space{
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .neuranet-container {
+        width: 100%;
+        margin: 0 auto;
+      }
+      
+      .neuranet-nodes {
+        border-radius: 50%;
+        width: 200px;
+        height: 100px;
+        background-color: #f7f7f7;
+        display: inline-block;
+        margin: 38px;
+        transform: translate(130px, 130px);
+        
+      }
+      
+      .neuranet-connectors {
+        width: 200px;
+        height: 4px;
+        background-color: #f7f7f7;
+        margin: 5px;
+        position: relative;
+      }
+      
+      .neuranet-connectors::before,
+      .neuranet-connectors::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #f7f7f7;
+      }
+      
+      .neuranet-connectors::before {
+        top: -10px;
+        left: 0px;
+      }
+      
+      .neuranet-connectors::after {
+        bottom: -10px;
+        right: 0px;
+      }

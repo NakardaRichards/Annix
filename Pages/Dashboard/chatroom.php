@@ -56,11 +56,11 @@ home
   <span class="material-icons">
 chat
 </span>Chat Room</a>
-  <a href="./annix.php">
+  <!-- <a href="./annix.php">
   <span class="material-icons">
 person
 </span>
-Annix</a>
+Annix</a> -->
   <a href="./brain.php"> <span class="material-icons">
 psychology
 </span>Brain</a>
@@ -172,15 +172,13 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
                     <!-- <p>Hello <?php echo $_SESSION['username'] ?> , how can I help you?</p> -->
                     <?php
                   
-                   $greetings = $greetingsObj->displayData($_POST);
+                  $greetings = $greetingsObj->displayData($_POST);
                 foreach ($greetings as $greeting) {
                 ?>
-                   
-                       
-                       
-                   <p><?php echo $greeting['greeting'] ?> </p>
 
-                     
+                <p><?php echo $greeting['greeting'] ?> </p>
+
+
                         <?php } ?>
                 </div>
             </div>
@@ -190,15 +188,14 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
 <div class="typing-field">
             <div class="input-data">
       
-   
+
     
         <input id="msg"  type="text" class="input-field" placeholder="Type a message here..." required></input>
         <button  id="send-btn">Send</button>
     </div>
     <div>
     </div>
-    
- 
+
 </form>
 <script>
         $(document).ready(function(){

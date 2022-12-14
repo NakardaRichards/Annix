@@ -20,6 +20,7 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
     
     <link rel="stylesheet" href="/FinalProject/css/sidebar.css">
     <link rel="stylesheet" href="/FinalProject/css/style.css">
+    <link rel="stylesheet" href="/FinalProject/css/brain.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
       <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -52,11 +53,11 @@ home
   <span class="material-icons">
 chat
 </span>Chat Room</a>
-  <a href="./annix.php">
+  <!-- <a href="./annix.php">
   <span class="material-icons">
 person
 </span>
-Annix</a>
+Annix</a> -->
   <a class="active" href="./brain.php"> <span class="material-icons">
 psychology
 </span>Brain</a>
@@ -90,26 +91,33 @@ psychology
 </div>
 </div>
 <div class="cont">
-
-
-          
                
-                  
-                    <h1>Possible Greeting</h1>
-                  
-              
-          
-                <?php
-                $greetings = $greetingsObj->displayData($_POST);
-                foreach ($greetings as $greeting) {
-                ?>
-                     
-                        <p><?php echo $greeting['greeting'] ?></p>
-                        
-                        
-                    
-                <?php } ?>
-          
+    <div class="neuranet-container">
+
+      <div class="neuranet-nodes">
+      <span>Greetings</span>
+      <div class="space"> <?php $greetings = $usersObj->greetingsCount($_POST);?></div>
+        <div class="neuranet-connectors"></div>
+      </div>
+      <div class="neuranet-nodes">
+      <span>Memory Capacity</span>
+ <div class="space"> <?php $knowledge = $usersObj->knowledgeCount($_POST);?></div>
+     
+        <div class="neuranet-connectors"></div>
+      </div>
+      <div class="neuranet-nodes">
+      <span>Moods</span>
+      <div class="space"> <?php $mood = $usersObj->moodCount($_POST);?></div>
+        <div class="neuranet-connectors"></div>
+      </div>
+      <!-- <div class="neuranet-nodes">
+        <div class="neuranet-connectors"></div>
+      </div>
+      <div class="neuranet-nodes">
+        <div class="neuranet-connectors"></div>
+      </div> -->
+    </div>
+
     </div>
             
     </div>
@@ -127,7 +135,7 @@ psychology
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
       
 		<script src="/FinalProject/Js/main.js"></script>
-        <?php include_once('footer.php'); ?>
+
     
 </body>
 </html>
