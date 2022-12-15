@@ -34,5 +34,19 @@ function myFunction() {
    element.classList.toggle("dark-mode");
 }
 </script>
+
+
+<div style="background-image: url('C:/xampp/htdocs/FinalProject/img/brain.jpg');">
+  <p>Your text here</p>
+</div>
+
+<style>body {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url("/FinalProject/img/brain.jpg");
+    background-position:  center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    height: 500px;
+    
+   }</style>
 </body>
 </html>

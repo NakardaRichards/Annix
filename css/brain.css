@@ -8,26 +8,40 @@
         width: 100%;
         margin: 0 auto;
       }
-      
+ 
+     
       .neuranet-nodes {
         border-radius: 50%;
         width: 200px;
         height: 100px;
-        background-color: #f7f7f7;
+        background-color: #fd009c;;
         display: inline-block;
         margin: 38px;
-        transform: translate(130px, 130px);
+        transform: translate(200px, 130px);
+        color: white !important;
+        font-size: large;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         
       }
       
       .neuranet-connectors {
         width: 200px;
         height: 4px;
-        background-color: #f7f7f7;
+        background-color:  #00F5FF;;
         margin: 5px;
         position: relative;
+        animation: rotateLines 5s linear infinite;
+        animation-delay: 0.6s;
       }
       
+      @keyframes rotateLines {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
       .neuranet-connectors::before,
       .neuranet-connectors::after {
         content: "";
@@ -46,4 +60,72 @@
       .neuranet-connectors::after {
         bottom: -10px;
         right: 0px;
+      }
+
+      .neuranet-nodes2 {
+        border-radius: 50%;
+        width: 200px;
+        height: 100px;
+        background-color: #fd009c;;
+        display: inline-block;
+        margin: 38px;
+        transform: translate(-240px, -100px);
+        color: white !important;
+        font-size: large;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        
+      }
+      
+      .neuranet-connectors2 {
+        width: 200px;
+        height: 4px;
+        background-color:  #00F5FF;;
+        margin: 5px;
+        position: relative;
+      }
+      
+      .neuranet-connectors2::before,
+      .neuranet-connectors2::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #f7f7f7;
+      }
+      
+      .neuranet-connectors2::before {
+        top: -10px;
+        left: 0px;
+      }
+      
+      .neuranet-connectors2::after {
+        bottom: -10px;
+        right: 0px;
+      }
+
+
+
+      .lines{
+        position: relative; 
+        width: 200px; 
+        height: 200px; 
+        
+        transform: translate(360px, 200px);
+      }
+      .lines:before,
+      .lines:after{
+        content: '';
+        position: absolute;
+        border-top: 1px solid #ccc;
+        width: 100%;
+        top: 50%;
+      }
+      .lines:before{
+        left: 0;
+        transform: rotate(-45deg);
+      }
+      .lines:after{
+        right: 0;
+        transform: rotate(45deg);
       }

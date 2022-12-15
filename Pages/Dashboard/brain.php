@@ -91,6 +91,15 @@ psychology
 </div>
 </div>
 <div class="cont">
+<div class="lines"></div>
+<style>body {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ),url("/FinalProject/img/brain.jpg");
+    background-position:  center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    height: 500px;
+    
+   }</style>
                
     <div class="neuranet-container">
 
@@ -100,14 +109,13 @@ psychology
         <div class="neuranet-connectors"></div>
       </div>
       <div class="neuranet-nodes">
-      <span>Memory Capacity</span>
- <div class="space"> <?php $knowledge = $usersObj->knowledgeCount($_POST);?></div>
-     
-        <div class="neuranet-connectors"></div>
-      </div>
-      <div class="neuranet-nodes">
       <span>Moods</span>
       <div class="space"> <?php $mood = $usersObj->moodCount($_POST);?></div>
+        <div class="neuranet-connectors"></div>
+      </div>
+      <div class="neuranet-nodes2">
+      <span>Memory Capacity</span>
+ <div class="space"> <?php $knowledge = $usersObj->knowledgeCount($_POST);?></div>
         <div class="neuranet-connectors"></div>
       </div>
       <!-- <div class="neuranet-nodes">
@@ -121,6 +129,7 @@ psychology
     </div>
             
     </div>
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </div>

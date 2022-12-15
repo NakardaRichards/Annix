@@ -9,6 +9,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
+<div style="background-image: url('C:/xampp/htdocs/FinalProject/img/brain.jpg');">
+  <p>Your text here</p>
+</div>
     <div class="wrapper">
         <div class="title">Annix</div>
         <div class="form">
