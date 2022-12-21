@@ -191,13 +191,14 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
 
     
         <input id="msg"  type="text" class="input-field" placeholder="Type a message here..." required></input>
-        <button  id="send-btn">Send</button>
+        <button onclick="startNarration()" id="send-btn" >Send</button>
     </div>
     <div>
     </div>
 
 </form>
 <script>
+
         $(document).ready(function(){
             $("#send-btn").on("click", function(){
                 $value = $("#msg").val();
@@ -231,7 +232,17 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
                 });
             });
         });
+        function startNarration() {
+   
+    var msg = new SpeechSynthesisUtterance();
+    url: 'insertChat.php'
+    msg.text = $replay
+    
+    // Change the narration voice
+    msg.voice = window.speechSynthesis.getVoices()[1]; // Select the second voice in the list of available voices
 
+    window.speechSynthesis.speak(msg);
+  }
         
     </script>
   <!-- <div class="col-lg-3 col-md-6 col-sm-6" style="font-size:14px">
